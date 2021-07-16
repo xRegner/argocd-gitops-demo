@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: regner
+  namespace: argocd
+spec:
+  source:
+    path: mychart
+    repoURL: https://github.com/xRegner/helm-pininos.git
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev-argo-test
+  project: default
