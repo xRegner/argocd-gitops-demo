@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-complex
+  name: spinnaker-operator
   namespace: argocd
 spec:
   source:
-    path: helm-dependency
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    path: deploy/operator/cluster
+    repoURL: https://github.com/xRegner/spinnaker-operator-docker-desktop.git
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: dev-argo-test
+    namespace: spinnaker-operator
   project: default
